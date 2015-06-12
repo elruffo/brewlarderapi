@@ -166,6 +166,12 @@ LOGGING = {
 #     ]
 # }
 
+BREWERYDB_API_KEY = os.environ.get("BREWERYDB_API_KEY")
+if not BREWERYDB_API_KEY:
+    # TODO: raise error for missing BREWERYDB_API_KEY
+    pass
+
+
 # Loading test/prod settings based on ENV settings
 ENV = os.environ.get('ENV', 'local')
 if ENV == 'prod':
