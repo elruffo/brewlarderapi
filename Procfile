@@ -1,0 +1,1 @@
+web: gunicorn brewlarderapi.wsgi --log-file -
