@@ -8,6 +8,6 @@ urlpatterns = patterns(
     (r'^[/]?$', 'home', {'template_name': 'frontoffice/home.html'}, 'frontoffice_home'),
 
     # API
-    (r'^search_beer[/]?$', 'search_beer', {}, 'search_beer'),
+    (r'^search[/]?$', 'search', {}, 'search'),
 
 )
