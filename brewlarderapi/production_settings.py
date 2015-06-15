@@ -11,4 +11,4 @@ DATABASES['default'] = dj_database_url.config()
 DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
 # Allow all host headers
-ALLOWED_HOSTS = ['angulardrf.herokuapp.com']
+ALLOWED_HOSTS = ['brewlarderapi.herokuapp.com']
