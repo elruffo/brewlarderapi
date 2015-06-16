@@ -46,11 +46,13 @@ INSTALLED_APPS = (
 
     # third party apps
     'rest_framework',
+    'corsheaders',
     # 'bootstrap_django_tags',
 )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -165,6 +167,14 @@ LOGGING = {
 #         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
 #     ]
 # }
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost',
+    'http://brewlarderclient.herokuapp.com/',
+    'http://brewlarderapi.herokuapp.com/'
+)
+
+# CORS_ORIGIN_ALLOW_ALL = True
 
 BREWERYDB_API_KEY = os.environ.get("BREWERYDB_API_KEY")
 if not BREWERYDB_API_KEY:
