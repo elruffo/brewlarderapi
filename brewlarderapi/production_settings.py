@@ -12,3 +12,7 @@ DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
 # Allow all host headers
 ALLOWED_HOSTS = ['brewlarderapi.herokuapp.com']
+
+CORS_ORIGIN_WHITELIST = (
+    'brewlarderclient.herokuapp.com',
+)
