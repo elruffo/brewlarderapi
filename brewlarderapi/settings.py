@@ -168,13 +168,13 @@ LOGGING = {
 #     ]
 # }
 
-CORS_ORIGIN_WHITELIST = (
-    'localhost',
-    'http://brewlarderclient.herokuapp.com/',
-    'http://brewlarderapi.herokuapp.com/'
-)
+# CORS_ORIGIN_WHITELIST = (
+#     'localhost',
+#     'http://brewlarderclient.herokuapp.com/',
+#     'http://brewlarderapi.herokuapp.com/'
+# )
 
-# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = True
 
 BREWERYDB_API_KEY = os.environ.get("BREWERYDB_API_KEY")
 if not BREWERYDB_API_KEY:
