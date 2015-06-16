@@ -23,6 +23,7 @@ def home(request, template_name="frontoffice/home.html"):
 def search(request):
     bd_type = request.GET.get('type')
     bd_query = request.GET.get('q')
+    bd_withBreweries = request.GET.get('withBreweries', 'N')
 
     if bd_type not in ['beer', 'brewery', ]:
         return Response({"error": "Bad Request: invalid type in GET request"},
@@ -33,6 +34,6 @@ def search(request):
                         status=status.HTTP_400_BAD_REQUEST)
 
     BreweryDb.configure(BREWERYDB_API_KEY)
-    beers = BreweryDb.search({'type': bd_type, 'q': bd_query, })
+    beers = BreweryDb.search({'type': bd_type, 'q': bd_query, 'withBreweries': bd_withBreweries, })
 
     return Response(beers, status=status.HTTP_200_OK)
