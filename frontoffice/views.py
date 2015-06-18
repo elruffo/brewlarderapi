@@ -34,6 +34,6 @@ def search(request):
                         status=status.HTTP_400_BAD_REQUEST)
 
     BreweryDb.configure(BREWERYDB_API_KEY)
-    beers = BreweryDb.search({'type': bd_type, 'q': bd_query, 'withBreweries': bd_withBreweries, })
+    beers = BreweryDb.search({'type': bd_type, 'q': bd_query, 'withBreweries': bd_withBreweries, })['data']
 
     return Response(beers, status=status.HTTP_200_OK)
