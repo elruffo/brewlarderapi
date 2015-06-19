@@ -2,7 +2,6 @@ from brewlarderapi.settings import BREWERYDB_API_KEY
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from brewerydb import *
-import os
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -34,6 +33,10 @@ def search(request):
                         status=status.HTTP_400_BAD_REQUEST)
 
     BreweryDb.configure(BREWERYDB_API_KEY)
-    beers = BreweryDb.search({'type': bd_type, 'q': bd_query, 'withBreweries': bd_withBreweries, })['data']
+    brewerydb_query_result = BreweryDb.search({'type': bd_type, 'q': bd_query, 'withBreweries': bd_withBreweries, })
+
+    beers = []
+    if 'data' in brewerydb_query_result:
+        beers = brewerydb_query_result['data']
 
     return Response(beers, status=status.HTTP_200_OK)
